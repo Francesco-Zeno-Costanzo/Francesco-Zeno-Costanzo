@@ -6,6 +6,7 @@
 -  📌 I'm based in Pisa, Tuscany, Italy
 -  🔭 I have a BSc degree in Physics
 -  📊 Studying for MSc degree in Theoretical Physics
+-  💬 If you don't understand something about the codes, ask me, maybe it turns out that I was wrong somewhere, it would not be strange
 
 
   <br />
