@@ -1,5 +1,5 @@
 # Francesco Zeno Costanzo.
-  <img align="right" alt="GIF" src="https://github.com/Francesco-Zeno-Costanzo/Francesco-Zeno-Costanzo/blob/main/coffee-break.gif" width="420" height="270" />
+  <img align="right" alt="PNG" src="https://github.com/Francesco-Zeno-Costanzo/Francesco-Zeno-Costanzo/blob/main/fixing_problems.png" width="420" height="270" />
   <br />
   <br />
   
