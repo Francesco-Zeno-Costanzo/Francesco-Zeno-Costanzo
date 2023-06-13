@@ -18,5 +18,5 @@
 
 
 <a href="https://github.com/anuraghazra/convoychat">
-  <img align="right" src="https://github-readme-stats.vercel.app/api?username=Francesco-Zeno-Costanzo&show_icons=true&theme=nord" width="420" />
+  <img align="right" src="https://github-readme-stats.vercel.app/api?username=Francesco-Zeno-Costanzo&show_icons=true&theme=nord&hide_rank=true" width="420" />
 </a>
