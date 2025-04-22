@@ -1,0 +1,172 @@
+/*
+#=========================================#
+#========= Sidebary configuration ========#
+#=========================================#
+
+about:config
+toolkit.legacyUserProfileCustomizations.stylesheets -> True
+layers.acceleration.force-enabled -> True
+gfx.webrender.all -> True
+gfx.webrender.enabled -> Create and True
+layout.css.backdrop-filter.enabled -> True
+svg.context-properties.content.enabled -> True
+widget.gtk.ignore-bogus-leave-notify -> 1
+ui.key.menuAccessKeyFocuses -> False
+
+about:support
+cercare cartella del profilo e dentro questa cartella
+creare una cartella chiamata chrome, e dentro un file
+chiamato: userChrome.css
+Di seguito il contenuto del file:
+*/
+
+#sidebar-header {
+  /* display: none; */
+  visibility: collapse !important;
+}
+
+/* Configurazione larghezza sidebar */
+:root {
+  --thin-tab-width: 32px;  /* Larghezza minima della sidebar */
+  --wide-tab-width: 300px; /* Larghezza quando espansa */
+}
+
+/* Sidebar che non copre il contenuto */
+#sidebar-box {
+  position: relative !important;
+  overflow: hidden !important;
+  z-index: 1000 !important;
+  transition: all 300ms ease !important;
+  min-width: var(--thin-tab-width) !important;
+  max-width: var(--thin-tab-width) !important;
+}
+#sidebar-box:hover {
+  min-width: var(--wide-tab-width) !important;
+  max-width: var(--wide-tab-width) !important;
+  margin-right: calc((var(--wide-tab-width) - var(--thin-tab-width)) * -1) !important;
+}
+
+
+/* Nascondi il separatore accanto alla sidebar */
+#sidebar-box + #sidebar-splitter {
+  display: none !important;
+}
+
+#main-window[titlepreface^="XXX"] .tabbrowser-tab{
+  display: none !important;
+}
+#main-window[titlepreface^="XXX"] .scrollbox-clip{  
+  width: 0 !important; 
+}
+#main-window[titlepreface^="XXX"] #alltabs-button{  
+  display: none !important; 
+}
+#main-window[titlepreface^="XXX"] .toolbar-items{  
+  display: none !important; 
+}
+/*Make sure that the titlebar and navbar are both on the same line*/
+#main-window[titlepreface^="XXX"] .titlebar-spacer{  
+  display: none !important; 
+}
+#main-window[titlepreface^="XXX"] #nav-bar{
+  padding-right: 80px !important; /* Spazio dedicato ai pulsanti di gestione finestra */
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  width: 100% !important; 
+  /*
+  border-radius: 5px 0 0 0; 
+  display: flex; 
+  box-sizing: border-box; 
+  padding-top: 2px; 
+  align-items: center; 
+  flex: 1; 
+  flex-basis: 50%; 
+  width: 100% !important; */
+}
+/* on GNOME you can use max-width: 48px below, if you only have the "Close" button on windows (default) */
+#main-window[titlepreface^="XXX"] #titlebar{
+  visibility: collapse !important;
+  height: 0 !important;
+  min-height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  display: none !important;
+  /*
+  border-radius: 0 5px 0 0; 
+  border-left: none !important; 
+  margin-top: 1px; 
+  flex: 1; 
+  flex-basis: 50%; 
+  width:10% !important; 
+  display: flex; 
+  max-width: 100px;   
+  align-items: center;
+  background-color: var(--toolbar-bgcolor) !important; 
+  border-left: 1px solid var(--toolbar-color);*/
+}
+#main-window[titlepreface^="XXX"] .titlebar-buttonbox-container  { 
+  position: absolute !important;
+  right: 4px !important; /* Posizionamento accanto alle estensioni */
+  top: 10px !important; /* Allinea verticalmente con le estensioni */
+  z-index: 1 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: none !important; /* Nessuno sfondo */
+  border: none !important;
+  padding: 0 5px !important; /* Spaziatura laterale */
+  /*box-sizing: border-box; 
+  justify-content:space-between; 
+  flex-direction: row-reverse;   
+  flex-wrap: wrap;*/
+}
+
+#main-window[titlepreface^="XXX"] #titlebar:-moz-window-inactive{
+  opacity: 1 !important;
+}
+#main-window[titlepreface^="XXX"] #TabsToolbar > *:not(.titlebar-buttonbox-container) {
+  display: none !important;
+}
+#PersonalToolbar {
+  width: 100% !important; 
+}
+#tab-notification-deck {
+  width: 100% !important;   
+  flex-basis: 100%; 
+  width: 100% !important;
+}
+
+/* Evita sovrapposizioni con la barra di ricerca */
+#main-window[titlepreface^="XXX"] #navigator-toolbox {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  align-items: center !important;
+  padding-top: 0 !important;
+}
+
+/* Migliora la gestione dello spazio complessivo */
+#main-window[titlepreface^="XXX"] {
+  --tab-min-height: 0 !important;     /* Elimina l'altezza residua dei tab */
+  --toolbox-min-height: 0 !important; /* Evita spazi vuoti nella toolbox */
+}
+
+/*****************************************************************
+Impostazioni dell'estensione -> Styles editor:
+
+#root:not(:hover){
+  --tabs-indent: 0;
+}
+
+mostra i ititoli delle schede inattive a piena opacità
+.Tab[data-discarded="true"] > .body > .t-box,
+.Tab[data-discarded="true"] > .body > .ctx{
+  opacity: 1;
+}
+
+Mostra le incone delle schede inattive a piena opacità
+.Tab[data-discarded="true"] > .body > .fav{
+  opacity: 1;
+}
+******************************************************************/

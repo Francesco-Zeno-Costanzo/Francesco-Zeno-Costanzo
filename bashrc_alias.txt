@@ -1,0 +1,44 @@
+
+alias vpy='vpy'
+function vpy(){
+
+    # Save current directory
+    original_dir=$(pwd)
+
+    # Change directory ad start virtual enviroment
+    cd /home/francesco/.venv
+    source bin/activate
+
+    # Return to original directory
+    cd "$original_dir"
+}
+alias dvpy='deactivate'
+
+update_discord() {
+    # URL della pagina di download di Discord
+    local discord_url="https://discord.com/api/download?platform=linux&format=deb"
+    # Nome del file temporaneo
+    local temp_file="/tmp/discord_latest.deb"
+
+    echo "Scaricando l'ultima versione di Discord..."
+    wget -O "$temp_file" "$discord_url"
+
+    if [ $? -eq 0 ]; then
+        echo "Download completato. Installazione in corso..."
+        sudo apt install -y "$temp_file"
+        if [ $? -eq 0 ]; then
+            echo "Discord aggiornato con successo!"
+        else
+            echo "Errore durante l'installazione di Discord."
+        fi
+    else
+        echo "Errore durante il download di Discord."
+    fi
+
+    # Rimuovi il file temporaneo
+    rm -f "$temp_file"
+}
+
+# Creazione alias
+alias update-discord="update_discord"
+
